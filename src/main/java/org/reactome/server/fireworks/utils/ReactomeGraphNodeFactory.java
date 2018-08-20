@@ -34,6 +34,9 @@ public class ReactomeGraphNodeFactory {
     }
 
     private void buildBranch(Pathway pathwayNode, GraphNode graphNode) {
+        if (pathwayNode.getHasEvent() == null) {
+            return;
+        }
         for (Event event : pathwayNode.getHasEvent()) {
             if(event instanceof Pathway) {
                 Pathway pNode = (Pathway) event;
